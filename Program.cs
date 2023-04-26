@@ -1,61 +1,76 @@
 ﻿using System;
 Main();
 
+
 void Main()
 {
-    Console.WriteLine("Welcome to the Enthusiastic Moose Simulator!");
+    Console.WriteLine("Welcome to the Magic Moose Simulator!");
     Console.WriteLine("--------------------------------------------");
     Console.WriteLine();
-
-    // Let the moose speak!
-    MooseSays("H I, I'M  E N T H U S I A S T I C !");
-    MooseSays("I really am enthusiastic");
-
-    // Ask a question
-    Question();
+    MagicMoose();
+    ResponseAns();
 }
 
-void Question()
+void ResponseAns()
 {
-    bool isTrue = MooseAsks("Is Canada real?");
-    if (isTrue)
-    {
-        MooseSays("Really? It seems very unlikely.");
-    }
-    else if (!isTrue)
-    {
-        MooseSays("I  K N E W  I T !!!");
-    }
+    // Dictionary<int, string> response = new Dictionary<int, string>() {
+    //     {0, "As I see it, yes."},
+    //     {1, "Ask again later."},
+    //     {2, "Better not tell you now."},
+    //     {3, "Cannot predict now."},
+    //     {4, "Concentrate and ask again."},
+    //     {5, "Don’t count on it."},
+    //     {6, "It is certain."},
+    //     {7, "It is decidedly so."},
+    //     {8, "Most likely."},
+    //     {9, "My reply is no."},
+    //     {10, "My sources say no."},
+    //     {11, "Outlook not so good."},
+    //     {12, "Outlook good."},
+    //     {13, "Reply hazy, try again."},
+    //     {14, "Signs point to yes."},
+    //     {15, "Very doubtful."},
+    //     {16, "Without a doubt."},
+    //     {17, "Yes"},
+    //     {18, "Yes - definitely."},
+    //     {19, "You may rely on it."}
+    // };
+
+    List<string> response = new List<string>(){
+        "As I see it, yes.",
+        "Ask again later.",
+        "Better not tell you now.",
+        "Cannot predict now.",
+        "Concentrate and ask again.",
+        "Don't count on it.",
+        "It is certain.",
+        "It is decidedly so.",
+        "Most likely.",
+        "My reply is no.",
+        "My sources say no.",
+        "Outlook not so good.",
+        "Outlook good.",
+        "Reply hazy, try again.",
+        "Signs point to yes.",
+        "Very doubtful.",
+        "Without a doubt.",
+        "Yes",
+        "Yes - definitely.",
+        "You may rely on it."
+    };
 
 
-    bool doesLoveCSharp = MooseAsks("Do you love C# yet?");
-    if (doesLoveCSharp)
-    {
-        MooseSays("Good job sucking up to your instructor!");
-    }
-    else if (!doesLoveCSharp)
-    {
-        MooseSays("You will...oh, yes, you will...");
-    }
-
-    bool wantsSecret = MooseAsks("Do you want to know a secret?");
-    if (wantsSecret)
-    {
-        MooseSays("ME TOO!!!! I love secrets...tell me one!");
-    }
-    else if (!wantsSecret)
-    {
-        MooseSays("Oh, no...secrets are the best, I love to share them!");
-
-    }
-}
+    Random randNum = new Random();
+    int randResponse = randNum.Next(0, response.Count);
+    Console.Write(response[randResponse]);
+};
 
 
 
-
-void MooseSays(string message)
+void MagicMoose()
 {
-    Console.WriteLine($@"
+
+    Console.WriteLine(@"
                                        _.--^^^--,
                                     .'          `\
   .-^^^^^^-.                      .'              |
@@ -72,7 +87,7 @@ void MooseSays(string message)
                '-'    | /       \ |
                       |  .-. .-.  |
                       \ / o| |o \ /
-                       |   / \   |    {message}
+                       |   / \   |   ASK ME A QUESTION!!!
                       / `^`   `^` \
                      /             \
                     | '._.'         \
@@ -83,28 +98,120 @@ void MooseSays(string message)
                       \ \'._  ` '_.'
                        `^^` `^^^`
     ");
+    string question = Console.ReadLine();
 }
 
-bool MooseAsks(string question)
-{
-    Console.Write($"{question} (Y/N): ");
-    string answer = Console.ReadLine().ToLower();
 
 
-    //While loop to check if the user inputs something other than y or n! I would've used an if statement for this, but a while loop makes more sense
-    while (answer != "y" && answer != "n")
-    {
-        Console.Write($"{question} (Y/N): ");
-        answer = Console.ReadLine().ToLower();
-    }
 
-    if (answer == "y")
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
+
+
+
+//~Code Before the Challenges
+// void Main()
+// {
+//     Console.WriteLine("Welcome to the Enthusiastic Moose Simulator!");
+//     Console.WriteLine("--------------------------------------------");
+//     Console.WriteLine();
+
+//     // Let the moose speak!
+//     MooseSays("H I, I'M  E N T H U S I A S T I C !");
+//     MooseSays("I really am enthusiastic");
+
+//     // Ask a question
+//     Question();
+// }
+
+// void Question()
+// {
+//     bool isTrue = MooseAsks("Is Canada real?");
+//     if (isTrue)
+//     {
+//         MooseSays("Really? It seems very unlikely.");
+//     }
+//     else if (!isTrue)
+//     {
+//         MooseSays("I  K N E W  I T !!!");
+//     }
+
+
+//     bool doesLoveCSharp = MooseAsks("Do you love C# yet?");
+//     if (doesLoveCSharp)
+//     {
+//         MooseSays("Good job sucking up to your instructor!");
+//     }
+//     else if (!doesLoveCSharp)
+//     {
+//         MooseSays("You will...oh, yes, you will...");
+//     }
+
+//     bool wantsSecret = MooseAsks("Do you want to know a secret?");
+//     if (wantsSecret)
+//     {
+//         MooseSays("ME TOO!!!! I love secrets...tell me one!");
+//     }
+//     else if (!wantsSecret)
+//     {
+//         MooseSays("Oh, no...secrets are the best, I love to share them!");
+
+//     }
+// }
+
+
+
+
+// void MooseSays(string message)
+// {
+//     Console.WriteLine($@"
+//                                        _.--^^^--,
+//                                     .'          `\
+//   .-^^^^^^-.                      .'              |
+//  /          '.                   /            .-._/
+// |             `.                |             |
+//  \              \          .-._ |          _   \
+//   `^^'-.         \_.-.     \   `          ( \__/
+//         |             )     '=.       .,   \
+//        /             (         \     /  \  /
+//      /`               `\        |   /    `'
+//      '..-`\        _.-. `\ _.__/   .=.
+//           |  _    / \  '.-`    `-.'  /
+//           \_/ |  |   './ _     _  \.'
+//                '-'    | /       \ |
+//                       |  .-. .-.  |
+//                       \ / o| |o \ /
+//                        |   / \   |    {message}
+//                       / `^`   `^` \
+//                      /             \
+//                     | '._.'         \
+//                     |  /             |
+//                      \ |             |
+//                       ||    _    _   /
+//                       /|\  (_\  /_) /
+//                       \ \'._  ` '_.'
+//                        `^^` `^^^`
+//     ");
+// }
+
+// bool MooseAsks(string question)
+// {
+//     Console.Write($"{question} (Y/N): ");
+//     string answer = Console.ReadLine().ToLower();
+
+
+//     //While loop to check if the user inputs something other than y or n! I would've used an if statement for this, but a while loop makes more sense
+//     while (answer != "y" && answer != "n")
+//     {
+//         Console.Write($"{question} (Y/N): ");
+//         answer = Console.ReadLine().ToLower();
+//     }
+
+//     if (answer == "y")
+//     {
+//         return true;
+//     }
+//     else
+//     {
+//         return false;
+//     }
+// }
 
